@@ -51,6 +51,9 @@ window.SAKURA_CONFIG = {
 - **Social links:** paste a full `https://` URL, e.g. `tiktok: "https://www.tiktok.com/@yourhandle"`.
   Nothing else needs changing. Empty = shown as a greyed-out, non-clickable item with a "soon" badge.
   Anything that isn't an `https://` URL is ignored.
+- **Social icons:** the TikTok and Instagram glyphs in `index.html` are the official marks, taken from
+  [Simple Icons](https://simpleicons.org/) 16.38.1 (CC0). They stay black and unmodified, as both
+  platforms' brand guidelines ask. The logos remain trademarks of TikTok and Instagram (Meta).
 - **While `KIT_FORM_ACTION_URL` is empty:** the form still shows. Submitting shows
   "Signups open very soon…" and sends **nothing** anywhere. It never pretends to succeed.
 

@@ -461,16 +461,12 @@ h2 {
   width: 16px;
   height: 16px;
   flex: none;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  /* Official glyphs: kept black in every state (brand guidelines allow black or white). */
+  fill: #000;
 }
 
 a.social__item:hover {
-  background: var(--sakura-red);
-  color: var(--on-sakura-red);
+  background: var(--blush);
 }
 
 .social__item[aria-disabled="true"] {
@@ -617,5 +613,8 @@ a.social__item:hover {
   }
   .petals {
     display: none;
+  }
+  .social__item svg {
+    fill: CanvasText;
   }
 }
