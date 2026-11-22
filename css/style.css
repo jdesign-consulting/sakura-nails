@@ -1,57 +1,10 @@
 /* Sakura Nails — coming-soon page
-   Colours, spacing and type follow brand/tokens.css (see brand/brand-guidelines.md).
+   Colours, type, spacing, radii and @font-face rules come from css/tokens.css
+   (brand v2, see brand/README.md). This file only uses those variables: no colour values here.
    Flat colour only: no gradients, no drop shadows. */
 
-/* ---------- Self-hosted fonts (SIL OFL, see assets/fonts/OFL-*.txt) ---------- */
-@font-face {
-  font-family: "Crimson Text";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../assets/fonts/crimson-text-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../assets/fonts/montserrat-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../assets/fonts/montserrat-latin-500-normal.woff2") format("woff2");
-}
-
-/* ---------- Tokens ---------- */
 :root {
   color-scheme: light;
-
-  --sakura-red: #741211;    /* headings, links, buttons — 10.1:1 on cream */
-  --cream: #f5f0ea;         /* page ground */
-  --ink: #2b1b1a;           /* body text — 14.5:1 on cream */
-  --warm-charcoal: #5c5250; /* secondary text — 6.7:1 on cream, 5.2:1 on blush */
-  --blush: #ebcfcb;         /* panels, inputs */
-  --rose: #9e3c44;          /* small accents — 5.8:1 on cream */
-  --on-sakura-red: var(--cream);
-
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-
-  --radius-sm: 4px;
-  --radius-md: 12px;
-  --radius-pill: 999px;
-
-  --font-display: "Crimson Text", Georgia, "Times New Roman", serif;
-  --font-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- Base ---------- */
@@ -72,9 +25,12 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: var(--cream);
+  background: var(--white);
   color: var(--ink);
-  font: 400 1rem/1.625 var(--font-sans);
+  font-family: var(--font-sans);
+  font-weight: var(--body-weight);
+  font-size: var(--body-size);
+  line-height: var(--body-line);
   overflow-x: hidden;
 }
 
@@ -94,9 +50,15 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+/* Focus ring: 2px sakura-red, 2px offset, on white and the blush panels.
+   On a sakura-red fill, use .on-red to switch the ring to white. */
 :focus-visible {
   outline: 2px solid var(--sakura-red);
   outline-offset: 2px;
+}
+
+.on-red :focus-visible {
+  outline-color: var(--white);
 }
 
 .visually-hidden {
@@ -111,6 +73,21 @@ a:hover {
   border: 0;
 }
 
+/* ---------- Label style: eyebrows, buttons, tags (brand "label" token) ---------- */
+.skip-link,
+.eyebrow,
+.field-label,
+.button,
+.social__item,
+.social__soon {
+  font-family: var(--font-label);
+  font-weight: var(--label-weight);
+  font-size: var(--label-size);
+  line-height: var(--label-line);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+}
+
 .skip-link {
   position: absolute;
   left: var(--space-4);
@@ -120,19 +97,15 @@ a:hover {
   background: var(--sakura-red);
   color: var(--on-sakura-red);
   border-radius: var(--radius-pill);
-  font: 500 0.75rem/1rem var(--font-sans);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
   text-decoration: none;
   transform: translateY(-200%);
 }
 
 .skip-link:focus-visible {
   transform: none;
-  outline-color: var(--sakura-red);
 }
 
-/* ---------- Falling petals (decorative, original artwork from the brand mark's nail petal) ---------- */
+/* ---------- Falling petals (decorative: one nail petal from the brand mark) ---------- */
 .petals {
   position: fixed;
   inset: 0;
@@ -141,10 +114,11 @@ a:hover {
   overflow: hidden;
 }
 
+/* Petal viewBox is 134 × 246, so width:height ≈ 0.545 */
 .petals svg {
   position: absolute;
   top: -40px;
-  width: 22px;
+  width: 14px;
   height: 26px;
   fill: var(--blush);
   animation: petal-fall var(--dur, 18s) linear var(--delay, 0s) infinite;
@@ -153,8 +127,8 @@ a:hover {
 
 .petals svg:nth-child(3n) {
   fill: var(--rose);
-  width: 14px;
-  height: 17px;
+  width: 10px;
+  height: 18px;
 }
 
 .petals svg:nth-child(1) { left: 6%;  --dur: 19s; --delay: -2s; }
@@ -190,6 +164,14 @@ a:hover {
   .petals svg:nth-child(7) { top: 58%; left: 95%; transform: rotate(100deg); }
   .petals svg:nth-child(8) { top: 92%; left: 7%;  transform: rotate(30deg); }
 
+  /* Below 768px the text runs close to the edges and the petal layer is fixed while the
+     page scrolls, so a still petal would sit on text at some point: hide them there. */
+  @media (max-width: 767px) {
+    .petals {
+      display: none;
+    }
+  }
+
   *,
   *::before,
   *::after {
@@ -218,34 +200,39 @@ a:hover {
   text-align: center;
 }
 
+/* Logo lockup (1240 × 1244 viewBox, ~8% transparent margin built in).
+   Clear space: at least the height of the lowercase "a" (≈13% of the logo's width)
+   on every side; the margins below plus the built-in margin cover that. */
 .logo {
-  width: 168px;
+  width: 176px;
   height: auto;
   margin: 0 auto var(--space-6);
 }
 
 .eyebrow {
   margin: 0 0 var(--space-3);
-  font: 500 0.75rem/1rem var(--font-sans);
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--rose);
+  color: var(--sakura-red);
   /* letter-spacing adds trailing space; nudge so the text looks centred */
-  padding-left: 0.32em;
+  padding-left: var(--label-tracking);
 }
 
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--headline-weight);
   color: var(--sakura-red);
+}
+
+/* "headline" token */
+.headline,
+.doc h1 {
+  font-size: var(--headline-size);
+  line-height: var(--headline-line);
+  letter-spacing: var(--headline-tracking);
 }
 
 .headline {
   margin: 0;
-  font-size: clamp(2.25rem, 1.5rem + 3.6vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: 0.03em;
   text-wrap: balance;
 }
 
@@ -253,63 +240,86 @@ h2 {
   margin: var(--space-3) auto 0;
   max-width: 26rem;
   color: var(--warm-charcoal);
-  font-size: 1rem;
-  line-height: 1.625;
   text-wrap: balance;
 }
 
-/* Petal divider: three plain teardrops */
+/* Divider: one petal between two short blush rules */
 .divider {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  margin: var(--space-6) auto;
-  color: var(--rose);
+  margin: var(--space-8) auto;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  width: var(--space-12);
+  height: 1px;
+  background: var(--blush);
 }
 
 .divider svg {
-  width: 10px;
-  height: 12px;
-  fill: currentColor;
-}
-
-.divider svg:nth-child(2) {
-  color: var(--sakura-red);
-  transform: rotate(180deg);
+  width: 12px;
+  height: 22px;
+  fill: var(--rose);
 }
 
 /* ---------- Signup panel ---------- */
 .signup-panel {
-  background: var(--blush);
+  background: var(--blush-light);
   border-radius: var(--radius-md);
   padding: var(--space-6) var(--space-4);
   text-align: left;
 }
 
+/* "title" token */
+.incentive,
+.doc h2 {
+  font-size: var(--title-size);
+  line-height: var(--title-line);
+  letter-spacing: var(--title-tracking);
+}
+
 .incentive {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
-  color: var(--sakura-red);
   text-align: center;
+  text-wrap: balance;
+}
+
+/* From 24rem (384px) up, Shippori Mincho sets the headline and the incentive on two lines
+   each (above 36rem the hero width is fixed). Reserve those lines so a narrower fallback
+   font shown before the web font arrives (font-display: swap) does not shift the form down. */
+@media (min-width: 24rem) {
+  .headline {
+    min-height: calc(var(--headline-line) * 2);
+  }
+
+  .incentive {
+    min-height: calc(var(--title-line) * 2);
+  }
+}
+
+/* "body-sm" token: captions, form notes, legal text */
+.incentive-note,
+.form-status,
+.consent,
+.site-footer,
+.doc .meta {
+  font-size: var(--body-sm-size);
+  line-height: var(--body-sm-line);
 }
 
 .incentive-note {
   margin: var(--space-1) 0 var(--space-6);
-  font-size: 0.875rem;
-  line-height: 1.375rem;
   color: var(--warm-charcoal);
   text-align: center;
 }
 
 .field-label {
   display: block;
-  margin-bottom: var(--space-2);
-  font: 500 0.75rem/1rem var(--font-sans);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  margin-bottom: var(--space-3);
   color: var(--ink);
 }
 
@@ -325,9 +335,12 @@ h2 {
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--warm-charcoal);
   border-radius: var(--radius-sm);
-  background: var(--cream);
+  background: var(--blush-light);
   color: var(--ink);
-  font: 400 1rem/1.5 var(--font-sans); /* 16px stops iOS zoom-on-focus */
+  font-family: var(--font-sans);
+  font-weight: var(--body-weight);
+  font-size: var(--body-size); /* 16px stops iOS zoom-on-focus */
+  line-height: 1.5;
 }
 
 .input::placeholder {
@@ -336,8 +349,6 @@ h2 {
 }
 
 .input:focus-visible {
-  outline: 2px solid var(--sakura-red);
-  outline-offset: 2px;
   border-color: var(--sakura-red);
 }
 
@@ -353,24 +364,25 @@ h2 {
   gap: var(--space-2);
   min-height: 48px;
   padding: var(--space-3) var(--space-6);
-  border: 0;
+  border: 1px solid var(--sakura-red);
   border-radius: var(--radius-pill);
   background: var(--sakura-red);
   color: var(--on-sakura-red);
-  font: 500 0.75rem/1rem var(--font-sans);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .button:hover {
-  background: var(--ink);
+  background: var(--blush);
+  color: var(--sakura-red);
 }
 
-.button[aria-disabled="true"] {
+.button[aria-disabled="true"],
+.button[aria-disabled="true"]:hover {
   cursor: progress;
+  border-color: var(--warm-charcoal);
   background: var(--warm-charcoal);
+  color: var(--on-sakura-red);
 }
 
 .spinner {
@@ -402,8 +414,6 @@ h2 {
 
 .form-status {
   margin: var(--space-3) 0 0;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
   color: var(--ink);
 }
 
@@ -416,7 +426,7 @@ h2 {
 .form-status[data-state="info"] {
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-sm);
-  background: var(--cream);
+  background: var(--white);
   border-left: 4px solid var(--sakura-red);
 }
 
@@ -426,8 +436,6 @@ h2 {
 
 .consent {
   margin: var(--space-4) 0 0;
-  font-size: 0.8125rem;
-  line-height: 1.25rem;
   color: var(--warm-charcoal);
 }
 
@@ -451,9 +459,6 @@ h2 {
   border: 1px solid var(--sakura-red);
   border-radius: var(--radius-pill);
   color: var(--sakura-red);
-  font: 500 0.75rem/1rem var(--font-sans);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -461,8 +466,7 @@ h2 {
   width: 16px;
   height: 16px;
   flex: none;
-  /* Official glyphs: kept black in every state (brand guidelines allow black or white). */
-  fill: #000;
+  fill: var(--sakura-red);
 }
 
 a.social__item:hover {
@@ -481,8 +485,6 @@ a.social__item:hover {
   border-radius: var(--radius-sm);
   background: var(--blush);
   color: var(--ink);
-  font-size: 0.625rem;
-  letter-spacing: 0.12em;
 }
 
 /* ---------- Footer ---------- */
@@ -491,8 +493,6 @@ a.social__item:hover {
   z-index: 1;
   padding: var(--space-6) var(--space-4) var(--space-8);
   text-align: center;
-  font-size: 0.8125rem;
-  line-height: 1.25rem;
   color: var(--warm-charcoal);
 }
 
@@ -526,6 +526,7 @@ a.social__item:hover {
   border-radius: var(--radius-sm);
 }
 
+/* 120px is the brand's minimum lockup width */
 .doc__logo {
   width: 120px;
   height: auto;
@@ -533,16 +534,10 @@ a.social__item:hover {
 
 .doc h1 {
   margin: 0 0 var(--space-2);
-  font-size: clamp(2rem, 1.6rem + 2vw, 2.5rem);
-  line-height: 1.2;
-  letter-spacing: 0.03em;
 }
 
 .doc h2 {
   margin: var(--space-8) 0 var(--space-2);
-  font-size: 1.5rem;
-  line-height: 2rem;
-  letter-spacing: 0.02em;
 }
 
 .doc p,
@@ -557,7 +552,6 @@ a.social__item:hover {
 .doc .meta {
   margin-top: 0;
   color: var(--warm-charcoal);
-  font-size: 0.875rem;
 }
 
 .doc .back {
@@ -583,14 +577,8 @@ a.social__item:hover {
     padding-top: var(--space-12);
   }
   .logo {
-    width: 200px;
+    width: 216px;
     margin-bottom: var(--space-8);
-  }
-  .subline {
-    font-size: 1.0625rem;
-  }
-  .incentive {
-    font-size: 1.5rem;
   }
   .doc {
     padding-top: var(--space-12);
@@ -599,7 +587,7 @@ a.social__item:hover {
 
 @media (min-width: 1200px) {
   .petals svg {
-    width: 28px;
+    width: 18px;
     height: 33px;
   }
 }
@@ -614,7 +602,8 @@ a.social__item:hover {
   .petals {
     display: none;
   }
-  .social__item svg {
+  .social__item svg,
+  .divider svg {
     fill: CanvasText;
   }
 }

@@ -15,15 +15,17 @@ no cookies, no third-party requests (fonts are self-hosted).
 | `index.html` | The coming-soon page: logo, headline, launch-discount teaser, signup form, social row, footer |
 | `privacy.html` | Privacy policy (plain English, effective November 22, 2026) |
 | `signup-soon.html` | Not used while Kit is wired up. Kept for pausing signups: no-JavaScript visitors would land here and nothing is sent |
-| `css/style.css` | All styles (brand tokens at the top) |
+| `css/tokens.css` | Brand design tokens (colours, type, spacing, radii) and the `@font-face` rules, copied from the brand kit's `tokens.css` (only the font paths changed). Edit tokens here, not in `style.css` |
+| `css/style.css` | All page styles, built only from the tokens (no hard-coded colours) |
 | `js/config.js` | **Every value you edit lives here**: Kit form URL, email field name, social links |
 | `js/main.js` | Form validation, Kit submission, social links, footer year |
-| `assets/logo/` | Logo lockups and marks (SVG + PNG) from the brand kit |
-| `assets/icons/` | Favicons, Apple touch icon, PWA icons from the brand kit |
-| `assets/social/` | `og-image-1200x630.png` (link previews), `social-avatar-1080.png` (TikTok/Instagram profile picture) |
-| `assets/fonts/` | Self-hosted Crimson Text and Montserrat (woff2) and their SIL OFL licences |
-| `brand/` | Brand guidelines, design tokens (`tokens.css`, `tokens.json`) and asset notes from the brand kit |
-| `site.webmanifest` | Web app manifest (icons, theme colour) |
+| `favicon.svg`, `favicon.ico`, `favicon-16/32/48.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` | Favicons, Apple touch icon and PWA icons from the brand kit, at the site root |
+| `og-image-1200x630.png` | Link-preview image (Open Graph / Twitter), at the site root |
+| `assets/logo/` | Logo lockups, wordmarks and marks (SVG + PNG) from the brand kit. The page uses `logo-lockup.svg`; use `logo-mark-simplified.svg` for the mark below 64px |
+| `assets/social/` | `social-avatar-1080.png` and `social-avatar-red-1080.png` (TikTok/Instagram profile pictures) |
+| `fonts/` | Self-hosted Shippori Mincho (headlines), Lexend Giga (labels, buttons) and Montserrat (body) as woff2, with their SIL OFL licences. The stacks list "AR Mincho" and "Agrandir Wide" first on purpose: those licensed fonts are not shipped, so the free fonts are used |
+| `brand/` | Brand book (`README.md`), design tokens (`tokens.css`, `tokens.json`) and asset notes from the v2 brand kit. Reference only, not deployed |
+| `site.webmanifest` | Web app manifest from the brand kit (icons, theme colour `#5C0C14`) |
 | `CNAME` | `sakuranails.store`. Record of the custom domain (with Actions deploys, the domain is set in Settings → Pages) |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (only matters for branch deploys) |
 | `.github/workflows/deploy-pages.yml` | GitHub Actions workflow that deploys the site to Pages on every push to `main` |
@@ -52,8 +54,9 @@ window.SAKURA_CONFIG = {
   Nothing else needs changing. Empty = shown as a greyed-out, non-clickable item with a "soon" badge.
   Anything that isn't an `https://` URL is ignored.
 - **Social icons:** the TikTok and Instagram glyphs in `index.html` are the official marks, taken from
-  [Simple Icons](https://simpleicons.org/) 16.38.1 (CC0). They stay black and unmodified, as both
-  platforms' brand guidelines ask. The logos remain trademarks of TikTok and Instagram (Meta).
+  [Simple Icons](https://simpleicons.org/) 16.38.1 (CC0). They are shown in sakura-red to match the
+  brand (TikTok's and Instagram's own guidelines prefer their marks in black or white, so switch
+  `.social__item svg` back if either platform asks). The logos remain trademarks of TikTok and Instagram (Meta).
 - **If `KIT_FORM_ACTION_URL` is empty:** the form still shows. Submitting shows
   "Signups open very soon…" and sends **nothing** anywhere. It never pretends to succeed.
 
@@ -203,8 +206,7 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
       signup (step 7). Kit's email footer also needs the postal address above before any marketing email.
 - [ ] **Social links:** add URLs in `js/config.js` when the accounts exist; use
       `assets/social/social-avatar-1080.png` as the profile picture.
-- [ ] **Logo artwork:** the brand-kit SVGs are vector redraws of the first logo design. When the Canva
-      original's SVG export is available, drop it in `assets/logo/` with the same filenames.
+- [x] **Logo artwork:** the v2 brand-kit SVGs carry the owner's original Canva artwork as vector outlines.
 - [x] **DNS + Pages + HTTPS:** live at https://sakuranails.store (www and http redirect to it).
       Check that the domain shows as **verified** in the organisation's Settings → Pages (its TXT record exists).
-- [ ] **OG image:** `assets/social/og-image-1200x630.png` says "Coming soon"; swap the text line at launch.
+- [ ] **OG image:** `og-image-1200x630.png` (site root) says "Coming soon"; swap the text line at launch.

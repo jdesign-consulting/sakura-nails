@@ -11,24 +11,27 @@
   <title>Privacy Policy · Sakura Nails</title>
   <meta name="description" content="How Sakura Nails handles the email address you give us when you join our launch list.">
   <link rel="canonical" href="https://sakuranails.store/privacy.html">
-  <meta name="theme-color" content="#f5f0ea">
+  <meta name="theme-color" content="#5C0C14">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sakura Nails">
   <meta property="og:title" content="Privacy Policy · Sakura Nails">
   <meta property="og:description" content="How Sakura Nails handles the email address you give us when you join our launch list.">
   <meta property="og:url" content="https://sakuranails.store/privacy.html">
-  <meta property="og:image" content="https://sakuranails.store/assets/social/og-image-1200x630.png">
+  <meta property="og:image" content="https://sakuranails.store/og-image-1200x630.png?v=2">
   <meta property="og:image:alt" content="Sakura Nails logo with the words Coming soon">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://sakuranails.store/assets/social/og-image-1200x630.png">
+  <meta name="twitter:image" content="https://sakuranails.store/og-image-1200x630.png?v=2">
 
-  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <!-- .ico first, then SVG, so browsers that support SVG favicons pick the SVG. ?v=2 busts old caches. -->
+  <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+  <link rel="manifest" href="/site.webmanifest?v=2">
 
+  <link rel="preload" href="fonts/ShipporiMincho-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
 
   <main class="doc" id="main">
     <a class="doc__logo-link" href="./">
-      <img class="doc__logo" src="assets/logo/logo-lockup.svg" width="480" height="400" alt="Sakura Nails home">
+      <img class="doc__logo" src="assets/logo/logo-lockup.svg" width="1240" height="1244" alt="Sakura Nails">
     </a>
 
     <h1>Privacy Policy</h1>

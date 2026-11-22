@@ -1,0 +1,8 @@
+SAKURA NAILS - HANDOFF (brand kit v2 + design system v2)
+
+brand-kit/       logos, favicons, app icons, social + OG images, site.webmanifest (see brand-kit/README.txt)
+design-system/   README.md (the brand book: read this first), tokens.json, tokens.css (ready-to-link CSS
+                 variables + @font-face), fonts/ (self-hostable woff2), components/Cover/preview.html
+
+Primary background is white (#FFFFFF). Brand red is #5C0C14.
+The logo SVGs hold the exact AR Mincho / Agrandir Wide lettering as outlines: use the files, never retype the name.

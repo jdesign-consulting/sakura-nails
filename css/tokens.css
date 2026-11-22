@@ -1,0 +1,37 @@
+/* Copied from the brand handoff (design-system/tokens.css, v2). Only change: font URLs point to ../fonts/. */
+/* Sakura Nails — generated from tokens.json (v2). Fonts are self-hosted from ./fonts */
+@font-face{font-family:"Shippori Mincho";src:url("../fonts/ShipporiMincho-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Lexend Giga";src:url("../fonts/LexendGiga-300.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Lexend Giga";src:url("../fonts/LexendGiga-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+:root{
+  --sakura-red:#5C0C14;
+  --white:#FFFFFF;
+  --ink:#2B1B1A;
+  --warm-charcoal:#5C5250;
+  --blush-light:#F8EEEE;
+  --blush:#EBCFCB;
+  --rose:#9E3C44;
+  --on-sakura-red:var(--white);
+  --font-display:"AR Mincho", "Shippori Mincho", Georgia, "Times New Roman", serif;
+  --font-label:"Agrandir Wide", "Lexend Giga", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --display-xl-size:64px;--display-xl-line:68px;--display-xl-weight:400;--display-xl-tracking:0.12em;
+  --headline-size:40px;--headline-line:48px;--headline-weight:400;--headline-tracking:0.04em;
+  --title-size:24px;--title-line:32px;--title-weight:400;--title-tracking:0.02em;
+  --body-size:16px;--body-line:26px;--body-weight:400;
+  --body-sm-size:14px;--body-sm-line:22px;--body-sm-weight:400;
+  --label-size:12px;--label-line:16px;--label-weight:400;--label-tracking:0.2em;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-12:48px;
+  --space-16:64px;
+  --radius-sm:4px;
+  --radius-md:12px;
+  --radius-pill:999px;
+}
