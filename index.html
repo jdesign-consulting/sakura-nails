@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sakura Nails · Press-on nails, coming soon</title>
+  <meta name="description" content="Sakura Nails press-on nails are launching soon in the US. Join the list for an exclusive launch discount.">
+  <link rel="canonical" href="https://sakuranails.store/">
+  <meta name="theme-color" content="#f5f0ea">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sakura Nails">
+  <meta property="og:title" content="Sakura Nails · Press-on nails, coming soon">
+  <meta property="og:description" content="Press-on nails launching soon in the US. Join the list for an exclusive launch discount.">
+  <meta property="og:url" content="https://sakuranails.store/">
+  <meta property="og:image" content="https://sakuranails.store/assets/social/og-image-1200x630.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sakura Nails logo with the words Coming soon">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sakura Nails · Press-on nails, coming soon">
+  <meta name="twitter:description" content="Press-on nails launching soon in the US. Join the list for an exclusive launch discount.">
+  <meta name="twitter:image" content="https://sakuranails.store/assets/social/og-image-1200x630.png">
+  <meta name="twitter:image:alt" content="Sakura Nails logo with the words Coming soon">
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/crimson-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#signup-form">Skip to signup</a>
+
+  <!-- Shared petal shape: the nail-bed teardrop from the brand mark. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="petal" d="M0,-13 C5,-9 11,-4 11,1 A11,11 0 0 1 -11,1 C-11,-4 -5,-9 0,-13Z"/>
+    </defs>
+  </svg>
+
+  <div class="petals" aria-hidden="true">
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+    <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+  </div>
+
+  <main class="page" id="main">
+    <div class="hero">
+      <img class="logo" src="assets/logo/logo-lockup.svg" width="480" height="400" alt="Sakura Nails">
+
+      <p class="eyebrow">Coming soon</p>
+      <h1 class="headline">Something pretty is coming</h1>
+      <p class="subline">Sakura Nails press-on nails are launching soon in the US.</p>
+
+      <div class="divider" aria-hidden="true">
+        <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+        <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+        <svg viewBox="-11 -13 22 25" focusable="false"><use href="#petal"/></svg>
+      </div>
+
+      <section class="signup-panel" aria-labelledby="incentive">
+        <h2 class="incentive" id="incentive">Join the list for an exclusive launch discount.</h2>
+        <p class="incentive-note">Details coming at launch.</p>
+
+        <!--
+          Kit signup form.
+          With JavaScript: js/main.js reads js/config.js and takes over.
+          Without JavaScript: these attributes are used as-is.
+            * Until Kit is set up, the form opens signup-soon.html and sends
+              no data (the email input deliberately has no name attribute).
+            * Once Kit is set up, replace the <form> opening tag with
+                <form class="signup" id="signup-form" method="post" action="YOUR_KIT_FORM_ACTION_URL">
+              and add name="email_address" (or your Kit field name) to the
+              email <input>. See README.md, "Wire up Kit", step 5.
+        -->
+        <form class="signup" id="signup-form" method="get" action="signup-soon.html">
+          <label class="field-label" for="email">Email address</label>
+          <div class="field-row">
+            <input class="input" id="email" type="email" data-email-input
+                   autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"
+                   placeholder="you@example.com" required maxlength="254"
+                   aria-describedby="form-status consent">
+            <button class="button" type="submit">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="button__text">Join the list</span>
+            </button>
+          </div>
+
+          <!-- Honeypot: people never see or fill this. Checked by js/main.js only; never sent. -->
+          <div class="hp" aria-hidden="true">
+            <label for="hp-website">Leave this field empty</label>
+            <input id="hp-website" type="text" data-honeypot tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+          <p class="consent" id="consent">
+            By subscribing you agree to receive emails from Sakura Nails about our launch and offers.
+            Unsubscribe anytime. See our <a href="privacy.html">Privacy Policy</a>.
+          </p>
+        </form>
+      </section>
+
+      <!--
+        Social row. URLs come from SOCIAL_LINKS in js/config.js.
+        Empty URL: stays a non-interactive "soon" item (this markup).
+        URL set: js/main.js swaps it for a normal link.
+        Icons are simple generic glyphs (music note, camera), not platform logos.
+      -->
+      <ul class="social" aria-label="Sakura Nails on social media">
+        <li>
+          <span class="social__item" data-social="tiktok" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+            <span>TikTok</span>
+            <span class="social__soon">soon</span>
+          </span>
+        </li>
+        <li>
+          <span class="social__item" data-social="instagram" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8.5h3.5l2-3h7l2 3H21V19H3z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+            <span>Instagram</span>
+            <span class="social__soon">soon</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Sakura Nails, operated by Angela Elliott</p>
+    <!-- TODO: add valid physical postal address (PO box / CMRA mailbox) before sending any marketing email (CAN-SPAM). -->
+    <p>
+      <a href="privacy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>&copy; <span data-year>2026</span> Sakura Nails
+    </p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
