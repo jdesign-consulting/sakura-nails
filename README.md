@@ -24,8 +24,9 @@ no cookies, no third-party requests (fonts are self-hosted).
 | `assets/fonts/` | Self-hosted Crimson Text and Montserrat (woff2) and their SIL OFL licences |
 | `brand/` | Brand guidelines, design tokens (`tokens.css`, `tokens.json`) and asset notes from the brand kit |
 | `site.webmanifest` | Web app manifest (icons, theme colour) |
-| `CNAME` | `sakuranails.store`, the custom domain for GitHub Pages |
-| `.nojekyll` | Tells GitHub Pages to serve files as-is |
+| `CNAME` | `sakuranails.store`. Record of the custom domain (with Actions deploys, the domain is set in Settings → Pages) |
+| `.nojekyll` | Tells GitHub Pages to serve files as-is (only matters for branch deploys) |
+| `.github/workflows/deploy-pages.yml` | GitHub Actions workflow that deploys the site to Pages on every push to `main` |
 
 ## Run it locally
 
@@ -86,7 +87,7 @@ window.SAKURA_CONFIG = {
    ```html
    <input class="input" id="email" name="email_address" type="email" ...
    ```
-6. **Commit and push.** GitHub Pages redeploys in a minute or two.
+6. **Commit and push to `main`.** The Actions workflow redeploys the site in a minute or two.
 7. **Test it for real.** On the live site, sign up with an address you control. Check that:
    - the page says "Thanks! Check your inbox to confirm your email." (or takes you to Kit's
      "check your email" page; see "How submission works" below);
@@ -119,21 +120,29 @@ window.SAKURA_CONFIG = {
 
 ---
 
-## Deploy: GitHub Pages
+## Deploy: GitHub Pages via GitHub Actions
 
 The repo is `jdesign-consulting/sakura-nails` (public, as GitHub Pages on a free plan requires).
+The workflow `.github/workflows/deploy-pages.yml` publishes the site **on every push to `main`**
+(and on demand from the Actions tab → *Deploy to GitHub Pages* → *Run workflow*).
+It publishes only the website files: `README.md`, `brand/` and `.github/` are left out.
 
-1. On GitHub open the repo → **Settings → Pages**.
-2. **Build and deployment → Source:** *Deploy from a branch*. **Branch:** `main`, folder **`/ (root)`** → **Save**.
-3. **Custom domain:** it should already read `sakuranails.store` (from the `CNAME` file). If not, type it
-   and **Save**.
-4. **Do not tick "Enforce HTTPS" yet.** Wait until the DNS check shows green and GitHub has issued the
+One-time setup:
+
+1. Make `main` the default branch (**Settings → General → Default branch**). Pages deployments are
+   only allowed from the default branch unless you change the `github-pages` environment's rules.
+2. **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
+3. **Custom domain:** type `sakuranails.store` and **Save**. With Actions deployments GitHub ignores the
+   `CNAME` file, so this setting is what counts (the file is kept as a record of the domain).
+4. Go to the **Actions** tab, open **Deploy to GitHub Pages**, and click **Run workflow** (or push any
+   commit to `main`). Its first run fails if it started before step 2; just re-run it.
+5. **Do not tick "Enforce HTTPS" yet.** Wait until the DNS check shows green and GitHub has issued the
    certificate (can take up to 24 hours after DNS works), then tick **Enforce HTTPS**.
 
-If you use the `gh` CLI instead:
+If you use the `gh` CLI instead of steps 2–3 (use `-X PUT` if Pages is already enabled):
 
 ```bash
-gh api -X POST repos/jdesign-consulting/sakura-nails/pages -f "source[branch]=main" -f "source[path]=/"
+gh api -X POST repos/jdesign-consulting/sakura-nails/pages -f build_type=workflow
 ```
 
 ```bash
