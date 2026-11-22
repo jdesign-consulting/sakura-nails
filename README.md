@@ -174,7 +174,7 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
       postal address (PO box or CMRA mailbox) to the footers and your Kit email footer **before sending any
       marketing email** (CAN-SPAM). Look for `TODO: add valid physical postal address` in
       `index.html`, `privacy.html` and `signup-soon.html`.
-- [ ] **Privacy policy placeholders** in `privacy.html`: `[SURNAME]`, `[CONTACT EMAIL]` (twice),
+- [ ] **Privacy policy placeholders** in `privacy.html`: `[CONTACT EMAIL]` (in two places),
       `[EFFECTIVE DATE]`, `[KIT PRIVACY POLICY URL - verify]` (the link already points to
       https://kit.com/privacy; check it and remove the bracket note). Have the policy reviewed
       by a professional before launch.
