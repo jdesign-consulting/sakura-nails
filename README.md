@@ -184,14 +184,14 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
       marketing email** (CAN-SPAM). Look for `TODO: add valid physical postal address` in
       `index.html`, `privacy.html` and `signup-soon.html`.
 - [ ] **Professional review of `privacy.html`** before launch. All placeholders are filled in.
-- [ ] **Set up the mailbox `support@sakuranails.store`.** The privacy policy lists it as the contact
-      address, so it must receive mail: set up email hosting or forwarding for the domain (e.g. at your
-      registrar) and add the MX/TXT records it gives you alongside the Pages DNS records. Send it a test
-      email. Using it as Kit's sender address also needs Kit's domain authentication (SPF/DKIM records).
+- [ ] **Test `support@sakuranails.store`.** The privacy policy lists it as the contact address. The domain
+      already uses the registrar's email forwarding (MX records exist); make sure `support@` has a
+      forwarding rule and send it a test email. Using it as Kit's sender address also needs Kit's domain authentication (SPF/DKIM records).
 - [ ] **Kit:** steps 1–7 above.
 - [ ] **Social links:** add URLs in `js/config.js` when the accounts exist; use
       `assets/social/social-avatar-1080.png` as the profile picture.
 - [ ] **Logo artwork:** the brand-kit SVGs are vector redraws of the first logo design. When the Canva
       original's SVG export is available, drop it in `assets/logo/` with the same filenames.
-- [ ] **DNS + Pages + Enforce HTTPS + domain verification:** see above.
+- [x] **DNS + Pages + HTTPS:** live at https://sakuranails.store (www and http redirect to it).
+      Check that the domain shows as **verified** in the organisation's Settings → Pages (its TXT record exists).
 - [ ] **OG image:** `assets/social/og-image-1200x630.png` says "Coming soon"; swap the text line at launch.
