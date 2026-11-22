@@ -13,7 +13,7 @@ no cookies, no third-party requests (fonts are self-hosted).
 | Path | What it is |
 | --- | --- |
 | `index.html` | The coming-soon page: logo, headline, launch-discount teaser, signup form, social row, footer |
-| `privacy.html` | Privacy policy (plain English, contains `[PLACEHOLDERS]`) |
+| `privacy.html` | Privacy policy (plain English, effective November 22, 2026) |
 | `signup-soon.html` | Shown only to visitors **without JavaScript** who submit before Kit is wired up. Nothing is sent |
 | `css/style.css` | All styles (brand tokens at the top) |
 | `js/config.js` | **Every value you edit lives here**: Kit form URL, email field name, social links |
@@ -183,9 +183,7 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
       postal address (PO box or CMRA mailbox) to the footers and your Kit email footer **before sending any
       marketing email** (CAN-SPAM). Look for `TODO: add valid physical postal address` in
       `index.html`, `privacy.html` and `signup-soon.html`.
-- [ ] **Privacy policy placeholders** in `privacy.html`: `[EFFECTIVE DATE]`, `[KIT PRIVACY POLICY URL - verify]` (the link already points to
-      https://kit.com/privacy; check it and remove the bracket note). Have the policy reviewed
-      by a professional before launch.
+- [ ] **Professional review of `privacy.html`** before launch. All placeholders are filled in.
 - [ ] **Set up the mailbox `support@sakuranails.store`.** The privacy policy lists it as the contact
       address, so it must receive mail: set up email hosting or forwarding for the domain (e.g. at your
       registrar) and add the MX/TXT records it gives you alongside the Pages DNS records. Send it a test
