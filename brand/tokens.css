@@ -1,0 +1,73 @@
+/* Sakura Nails — generated from tokens.json */
+:root, [data-theme="light"] {
+  --sakura-red: #741211; /* Brand colour: the logo mark and wordmark, headings, links and primary buttons. Text on cream (10.1:1) and blush (7.8:1). */
+  --cream: #f5f0ea; /* Page ground and the light fill of cards. Text on it: ink, sakura-red, warm-charcoal, rose. */
+  --ink: #2b1b1a; /* Body copy and UI text on cream and blush (14.5:1 on cream, 11.2:1 on blush). */
+  --warm-charcoal: #5c5250; /* Secondary text and captions on cream (6.7:1) and blush (5.2:1). */
+  --blush: #ebcfcb; /* Soft panels, input backgrounds and quiet highlights. Carries ink, warm-charcoal, sakura-red or rose text. */
+  --rose: #9e3c44; /* Small accent: highlights, icons, decorative marks, sale or notice text. Text on cream (5.8:1) and blush (4.5:1). */
+  --on-sakura-red: var(--cream); /* Text and icons on a sakura-red fill, such as primary buttons and the reversed logo (10.1:1). */
+}
+:root {
+  --space-1: 4px; /* Icon-to-label gaps. */
+  --space-2: 8px; /* Tight gaps between related items. */
+  --space-3: 12px; /* Gap between a label and its field. */
+  --space-4: 16px; /* Default padding inside inputs and buttons. */
+  --space-6: 24px; /* Card padding and gaps between stacked items. */
+  --space-8: 32px; /* Gaps between groups of content. */
+  --space-12: 48px; /* Section padding and the petal-pattern pitch. */
+  --space-16: 64px; /* Gaps between page sections. */
+  --radius-sm: 4px; /* Inputs and small tags. */
+  --radius-md: 12px; /* Cards, panels and colour blocks. */
+  --radius-pill: 999px; /* Buttons; half the short side of the control. */
+  --font-display: "Crimson Text", Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --text-display-xl: 400 64px/68px var(--font-display); /* Hero wordmark-style headline, one per page. sakura-red on cream. */
+  --text-headline: 400 40px/48px var(--font-display); /* Page and section headlines, sentence case. */
+  --text-title: 400 24px/32px var(--font-display); /* Card titles and sub-headings. */
+  --text-body: 400 16px/26px var(--font-sans); /* Running text in ink. */
+  --text-body-sm: 400 14px/22px var(--font-sans); /* Captions, form notes and legal text in warm-charcoal. */
+  --text-label: 500 12px/16px var(--font-sans); /* Eyebrows, buttons and tags, set in capitals; echoes the NAILS line of the logo. */
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 68px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+.headline {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+}

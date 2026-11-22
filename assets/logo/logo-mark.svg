@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -110 220 220" width="220" height="220">
+  
+  <path transform="rotate(0)" d="M0,-100 C9,-84 21,-66 21,-43 A21,21 0 0 1 -21,-43 C-21,-66 -9,-84 0,-100 Z" fill="none" stroke="#741211" stroke-opacity="0.6" stroke-width="1.8" stroke-linejoin="round"/>
+  <path transform="rotate(0)" d="M0,-82 C8,-70 19,-58 19,-41 A19,19 0 0 1 -19,-41 C-19,-58 -8,-70 0,-82 Z" fill="#741211"/>
+  <path transform="rotate(72)" d="M0,-100 C9,-84 21,-66 21,-43 A21,21 0 0 1 -21,-43 C-21,-66 -9,-84 0,-100 Z" fill="none" stroke="#741211" stroke-opacity="0.6" stroke-width="1.8" stroke-linejoin="round"/>
+  <path transform="rotate(72)" d="M0,-82 C8,-70 19,-58 19,-41 A19,19 0 0 1 -19,-41 C-19,-58 -8,-70 0,-82 Z" fill="#741211"/>
+  <path transform="rotate(144)" d="M0,-100 C9,-84 21,-66 21,-43 A21,21 0 0 1 -21,-43 C-21,-66 -9,-84 0,-100 Z" fill="none" stroke="#741211" stroke-opacity="0.6" stroke-width="1.8" stroke-linejoin="round"/>
+  <path transform="rotate(144)" d="M0,-82 C8,-70 19,-58 19,-41 A19,19 0 0 1 -19,-41 C-19,-58 -8,-70 0,-82 Z" fill="#741211"/>
+  <path transform="rotate(216)" d="M0,-100 C9,-84 21,-66 21,-43 A21,21 0 0 1 -21,-43 C-21,-66 -9,-84 0,-100 Z" fill="none" stroke="#741211" stroke-opacity="0.6" stroke-width="1.8" stroke-linejoin="round"/>
+  <path transform="rotate(216)" d="M0,-82 C8,-70 19,-58 19,-41 A19,19 0 0 1 -19,-41 C-19,-58 -8,-70 0,-82 Z" fill="#741211"/>
+  <path transform="rotate(288)" d="M0,-100 C9,-84 21,-66 21,-43 A21,21 0 0 1 -21,-43 C-21,-66 -9,-84 0,-100 Z" fill="none" stroke="#741211" stroke-opacity="0.6" stroke-width="1.8" stroke-linejoin="round"/>
+  <path transform="rotate(288)" d="M0,-82 C8,-70 19,-58 19,-41 A19,19 0 0 1 -19,-41 C-19,-58 -8,-70 0,-82 Z" fill="#741211"/>
+</svg>
