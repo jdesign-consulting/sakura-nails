@@ -14,7 +14,7 @@ no cookies, no third-party requests (fonts are self-hosted).
 | --- | --- |
 | `index.html` | The coming-soon page: logo, headline, launch-discount teaser, signup form, social row, footer |
 | `privacy.html` | Privacy policy (plain English, effective November 22, 2026) |
-| `signup-soon.html` | Shown only to visitors **without JavaScript** who submit before Kit is wired up. Nothing is sent |
+| `signup-soon.html` | Not used while Kit is wired up. Kept for pausing signups: no-JavaScript visitors would land here and nothing is sent |
 | `css/style.css` | All styles (brand tokens at the top) |
 | `js/config.js` | **Every value you edit lives here**: Kit form URL, email field name, social links |
 | `js/main.js` | Form validation, Kit submission, social links, footer year |
@@ -42,7 +42,7 @@ Then open http://localhost:8000.
 
 ```js
 window.SAKURA_CONFIG = {
-  KIT_FORM_ACTION_URL: "",              // Kit form endpoint; "" = signups not open yet
+  KIT_FORM_ACTION_URL: "https://app.kit.com/forms/10226086/subscriptions", // "" = signups paused
   KIT_EMAIL_FIELD_NAME: "email_address",// name of the email input in Kit's embed code
   SOCIAL_LINKS: { tiktok: "", instagram: "" }
 };
@@ -54,12 +54,16 @@ window.SAKURA_CONFIG = {
 - **Social icons:** the TikTok and Instagram glyphs in `index.html` are the official marks, taken from
   [Simple Icons](https://simpleicons.org/) 16.38.1 (CC0). They stay black and unmodified, as both
   platforms' brand guidelines ask. The logos remain trademarks of TikTok and Instagram (Meta).
-- **While `KIT_FORM_ACTION_URL` is empty:** the form still shows. Submitting shows
+- **If `KIT_FORM_ACTION_URL` is empty:** the form still shows. Submitting shows
   "Signups open very soon…" and sends **nothing** anywhere. It never pretends to succeed.
 
 ---
 
-## Wire up Kit (once the Kit account exists)
+## Wire up Kit
+
+**Status:** steps 3–5 are done. The site points at Kit form **10226086**
+(`https://app.kit.com/forms/10226086/subscriptions`, field `email_address`), for both the JavaScript
+and the no-JavaScript paths. Still to do: check steps 1–2 in Kit, then step 7.
 
 1. **Create a form in Kit.** In Kit, go to **Grow → Landing Pages & Forms → Create new → Form**,
    choose **Inline**, and pick any template (the styling isn't used; only the endpoint is).
@@ -78,7 +82,9 @@ window.SAKURA_CONFIG = {
    In the same embed code, find the email `<input>` and check its `name="..."`. If it is not
    `email_address`, put the real name in `KIT_EMAIL_FIELD_NAME`.
 5. **Update the no-JavaScript form in `index.html`** (so visitors with JavaScript off can sign up too).
-   Replace
+   *(Done. To pause signups later, set `KIT_FORM_ACTION_URL` back to `""` and reverse this step: restore
+   `method="get" action="signup-soon.html"` and remove `name` from the email input. `signup-soon.html`
+   is kept for that.)* Replace
    ```html
    <form class="signup" id="signup-form" method="get" action="signup-soon.html">
    ```
@@ -100,11 +106,14 @@ window.SAKURA_CONFIG = {
 
 ### What was verified and what was assumed
 
-- I could **not** read Kit's help centre from here (it refused automated access), so the steps above
-  rely on Kit's long-standing embed format and are **assumptions to check against your own embed code**:
-  the action URL shape `https://app.kit.com/forms/<ID>/subscriptions` (older accounts may show
-  `app.convertkit.com`; either works if it's what your embed shows), `method="post"`, the field name
-  `email_address`, and the menu names in steps 1–3.
+- **Verified against the live endpoint** (November 22, 2026, without submitting any real address):
+  form 10226086 exists (an unknown form ID is rejected); Kit allows cross-origin requests from
+  `https://sakuranails.store` (`Access-Control-Allow-Origin: *`) and replies in JSON, so the page shows its
+  own success/error messages instead of falling back to Kit's page; `email_address` is the required field.
+- **Not verified:** a real signup, the confirmation email, and the menu names in steps 1–2 (Kit's help
+  centre refused automated access). That's what step 7 is for.
+- Kit runs its own bot checks. If a genuine signup is ever flagged, Kit replies `"failed"` and the page
+  shows "Sorry, something went wrong…" rather than a false success.
 - Kit's privacy policy at **https://kit.com/privacy** was verified to load (last updated
   October 9, 2026).
 
@@ -190,7 +199,8 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
 - [ ] **Test `support@sakuranails.store`.** The privacy policy lists it as the contact address. The domain
       already uses the registrar's email forwarding (MX records exist); make sure `support@` has a
       forwarding rule and send it a test email. Using it as Kit's sender address also needs Kit's domain authentication (SPF/DKIM records).
-- [ ] **Kit:** steps 1–7 above.
+- [ ] **Kit:** endpoint is wired up (steps 3–5). Check double opt-in (steps 1–2), then do a real test
+      signup (step 7). Kit's email footer also needs the postal address above before any marketing email.
 - [ ] **Social links:** add URLs in `js/config.js` when the accounts exist; use
       `assets/social/social-avatar-1080.png` as the profile picture.
 - [ ] **Logo artwork:** the brand-kit SVGs are vector redraws of the first logo design. When the Canva

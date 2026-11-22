@@ -8,15 +8,16 @@ window.SAKURA_CONFIG = {
    * Kit form endpoint, copied from the `action="..."` attribute of the
    * <form> in your Kit form's HTML embed code. Usually looks like:
    *   "https://app.kit.com/forms/1234567/subscriptions"
-   * Leave as "" until Kit is set up: the form still shows, but submitting
-   * just says "Signups open very soon" and sends nothing anywhere.
-   * See README.md → "Wire up Kit" (also update the no-JS form in index.html).
+   * Set to "" to pause signups: the form still shows, but submitting just
+   * says "Signups open very soon" and sends nothing anywhere.
+   * If you change or clear this, also update the no-JS <form> in index.html
+   * (see README.md → "Wire up Kit", step 5).
    */
-  KIT_FORM_ACTION_URL: "",
+  KIT_FORM_ACTION_URL: "https://app.kit.com/forms/10226086/subscriptions",
 
   /*
    * The `name` of the email <input> in Kit's embed code.
-   * Kit's embeds have used "email_address"; check yours and change if needed.
+   * Confirmed for this form: Kit requires "email_address".
    */
   KIT_EMAIL_FIELD_NAME: "email_address",
 

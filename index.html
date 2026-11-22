@@ -79,18 +79,15 @@
         <!--
           Kit signup form.
           With JavaScript: js/main.js reads js/config.js and takes over.
-          Without JavaScript: these attributes are used as-is.
-            * Until Kit is set up, the form opens signup-soon.html and sends
-              no data (the email input deliberately has no name attribute).
-            * Once Kit is set up, replace the <form> opening tag with
-                <form class="signup" id="signup-form" method="post" action="YOUR_KIT_FORM_ACTION_URL">
-              and add name="email_address" (or your Kit field name) to the
-              email <input>. See README.md, "Wire up Kit", step 5.
+          Without JavaScript: these attributes are used as-is, i.e. a normal
+          POST to Kit, which shows Kit's own confirmation page.
+          Keep the action URL and the input's name in sync with js/config.js.
+          To pause signups, see README.md, "Wire up Kit", step 5.
         -->
-        <form class="signup" id="signup-form" method="get" action="signup-soon.html">
+        <form class="signup" id="signup-form" method="post" action="https://app.kit.com/forms/10226086/subscriptions">
           <label class="field-label" for="email">Email address</label>
           <div class="field-row">
-            <input class="input" id="email" type="email" data-email-input
+            <input class="input" id="email" name="email_address" type="email" data-email-input
                    autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"
                    placeholder="you@example.com" required maxlength="254"
                    aria-describedby="form-status consent">
