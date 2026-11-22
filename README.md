@@ -174,10 +174,13 @@ Remove any existing parking/forwarding records for the apex and `www`, then add:
       postal address (PO box or CMRA mailbox) to the footers and your Kit email footer **before sending any
       marketing email** (CAN-SPAM). Look for `TODO: add valid physical postal address` in
       `index.html`, `privacy.html` and `signup-soon.html`.
-- [ ] **Privacy policy placeholders** in `privacy.html`: `[CONTACT EMAIL]` (in two places),
-      `[EFFECTIVE DATE]`, `[KIT PRIVACY POLICY URL - verify]` (the link already points to
+- [ ] **Privacy policy placeholders** in `privacy.html`: `[EFFECTIVE DATE]`, `[KIT PRIVACY POLICY URL - verify]` (the link already points to
       https://kit.com/privacy; check it and remove the bracket note). Have the policy reviewed
       by a professional before launch.
+- [ ] **Set up the mailbox `support@sakuranails.store`.** The privacy policy lists it as the contact
+      address, so it must receive mail: set up email hosting or forwarding for the domain (e.g. at your
+      registrar) and add the MX/TXT records it gives you alongside the Pages DNS records. Send it a test
+      email. Using it as Kit's sender address also needs Kit's domain authentication (SPF/DKIM records).
 - [ ] **Kit:** steps 1–7 above.
 - [ ] **Social links:** add URLs in `js/config.js` when the accounts exist; use
       `assets/social/social-avatar-1080.png` as the profile picture.
